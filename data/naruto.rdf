@@ -32,15 +32,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#hasFought -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#hasFought">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#hasStudent -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#hasStudent">
@@ -89,6 +80,7 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#isOrgMemberOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#isOrgMemberOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Organizations"/>
     </owl:ObjectProperty>
@@ -180,7 +172,7 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Chuunin -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Chuunin">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank"/>
     </owl:Class>
     
 
@@ -200,7 +192,7 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Genin -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Genin">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank"/>
     </owl:Class>
     
 
@@ -235,7 +227,7 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jounin -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jounin">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank"/>
     </owl:Class>
     
 
@@ -249,7 +241,7 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kage -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kage">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank"/>
     </owl:Class>
     
 
@@ -273,7 +265,7 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nukenin -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nukenin">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank"/>
     </owl:Class>
     
 
@@ -281,6 +273,22 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Organizations -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Organizations"/>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Rank">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sennin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sennin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+    </owl:Class>
     
 
 
@@ -349,6 +357,18 @@
     
 
 
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Deidara -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Deidara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nukenin"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Iwagakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Doton -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Doton">
@@ -382,6 +402,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kage"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sunagakure"/>
         <naruto-ontology:isJinchuurikiOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shukaku"/>
+        <naruto-ontology:status rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -406,10 +427,12 @@
     
 
 
-    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hebi -->
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hidan -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hebi">
-        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Organizations"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hidan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Yukigakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
     </owl:NamedIndividual>
     
 
@@ -419,6 +442,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hinata_Hyuuga">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jounin"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status>Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -433,6 +457,7 @@
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Raiton"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Suiton"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -461,7 +486,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Raiton"/>
         <naruto-ontology:isClanMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Uchiha"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
         <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -483,6 +510,18 @@
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Katon"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Suiton"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jugo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jugo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nukenin"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sennin"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Otogakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Taka"/>
     </owl:NamedIndividual>
     
 
@@ -490,8 +529,33 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kakashi_Hatake -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kakashi_Hatake">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jounin"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Raiton"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status>Alive</naruto-ontology:status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kakuzu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kakuzu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Takigakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+        <naruto-ontology:status rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Deceased</naruto-ontology:status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Karin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Karin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nukenin"/>
+        <naruto-ontology:isClanMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Uzumaki"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kusagakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Taka"/>
+        <naruto-ontology:status>Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -525,12 +589,32 @@
     
 
 
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kisame -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kisame">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kirigakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kokuo -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kokuo">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Bijuu"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jinchuuriki"/>
         <naruto-ontology:tailNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</naruto-ontology:tailNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+        <naruto-ontology:status>Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -549,6 +633,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Chuunin"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Futon"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Katon"/>
+        <naruto-ontology:status>Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -583,7 +668,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kushina_Uzumaki">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jinchuuriki"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
-        <naruto-ontology:status>dead</naruto-ontology:status>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -603,6 +688,19 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Minato_Namikaze">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kage"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Futon"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nagato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nagato">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isClanMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Uzumaki"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Amegakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -612,6 +710,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Naruto_Uzumaki">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jinchuuriki"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kage"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sennin"/>
         <naruto-ontology:isClanMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Uzumaki"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
         <naruto-ontology:isJinchuurikiOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kurama"/>
@@ -625,6 +724,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Neji_Hyuuga">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Jounin"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -648,7 +748,10 @@
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#RockLee -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#RockLee">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Chuunin"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status>Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -678,6 +781,18 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sakura_Haruno">
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Doton"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:status rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Alive</naruto-ontology:status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sasori -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sasori">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Sunagakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
+        <naruto-ontology:status>Deceased</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -689,6 +804,8 @@
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Katon"/>
         <naruto-ontology:hasElement rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Raiton"/>
         <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Konohagakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Taka"/>
+        <naruto-ontology:status rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Alive</naruto-ontology:status>
     </owl:NamedIndividual>
     
 
@@ -721,6 +838,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Suigetsu_Hozuki -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Suigetsu_Hozuki">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Nukenin"/>
+        <naruto-ontology:isFrom rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Kirigakure"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Taka"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Suiton -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Suiton">
@@ -749,6 +876,15 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Takigakure">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Small_Village"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Tobi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Tobi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
     </owl:NamedIndividual>
     
 
@@ -803,6 +939,15 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Yukigakure">
         <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Small_Village"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Zetsu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Zetsu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#AkatsukiMember"/>
+        <naruto-ontology:isOrgMemberOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Akatsuki"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
