@@ -247,10 +247,15 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#HyuugaClanMember">
         <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#isClanMemberOf"/>
-                <owl:hasValue rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hyuuga"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#isClanMemberOf"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Hyuuga"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
         <rdfs:subClassOf>
@@ -407,10 +412,15 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#UchihaClanMember">
         <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#isClanMemberOf"/>
-                <owl:hasValue rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Uchiha"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#isClanMemberOf"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Uchiha"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/qika/ontologies/2025/10/naruto-ontology#Shinobi"/>
         <rdfs:subClassOf>
