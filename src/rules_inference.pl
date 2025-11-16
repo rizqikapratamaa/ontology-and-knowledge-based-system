@@ -88,3 +88,26 @@ akatsuki_candidate(Name) :-
     ;   shinobi_info(Name, _, 'Kage')
     ;   shinobi_info(Name, _, 'Sennin')
     ).
+
+% A jinchuriki who is still alive
+surviving_jinchuriki(Name, BijuuName) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'isJinchuurikiOf', IsJinOf),
+    atom_concat(P, 'status', StatusProp),
+    
+    rdf(S, IsJinOf, BijuuURI),
+    rdf(S, StatusProp, literal(type(_, 'Alive'))),
+    
+    get_name(S, Name),
+    get_name(BijuuURI, BijuuName).
+
+% Akatsuki member who is still alive
+surviving_akatsuki_member(Name) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'AkatsukiMember', Akatsuki),
+    atom_concat(P, 'status', StatusProp),
+    
+    rdf(S, rdf:type, Akatsuki),
+    \+ rdf(S, StatusProp, literal(type(_, 'Deceased'))),
+
+    get_name(S, Name).

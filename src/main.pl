@@ -41,4 +41,6 @@ start :-
     write(' 5. village_protector(Name).             -> Active kage'), nl,
     write(' 6. village_traitor(Name, Origin).       -> Village traitor list'), nl,
     write(' 7. akatsuki_candidate(Name).            -> Akatsukis new member candidates'), nl,
+    write(' 8. surviving_akatsuki_member(Name).            -> Akatsuki members still alive'), nl,
+    write(' 9. surviving_jinchuriki(Name).            -> A jinchuriki who is still alive'), nl,
     write('==========================================================='), nl.
