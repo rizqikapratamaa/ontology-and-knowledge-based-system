@@ -28,6 +28,15 @@ get_clan_members(Clan, Member) :-
     get_name(K, Clan),
     get_name(S, Member).
 
+% Get Organization members
+get_org_members(Org, Member) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'isOrgMemberOf', IsOrg),
+    
+    rdf(S, IsOrg, O),
+    get_name(O, Org),
+    get_name(S, Member).
+
 % Get dojutsu users
 get_eye_users(EyeType, Shinobi) :-
     common_prefix(naruto, P),
@@ -84,3 +93,23 @@ count_elements(Shinobi, Total) :-
     get_name(S, Shinobi), % Bind nama dulu
     findall(E, rdf(S, HasElem, E), List),
     length(List, Total).
+
+% Finding shinobi from big Village
+shinobi_from_big_village(Village, Shinobi) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'isFrom', IsFrom),
+    atom_concat(P, 'Big_Village', Big_Village),
+    rdf(S, IsFrom, VillageIRI),
+
+    rdf(VillageIRI, rdf:type, Big_Village),
+    get_name(S, Shinobi),
+    get_name(VillageIRI, Village).
+
+% Finding shinobi from small Village
+shinobi_from_small_village(Village, Shinobi) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'isFrom', IsFrom),
+    rdf(S, IsFrom, VillageIRI),
+    rdf(VillageIRI, rdf:type, P:'Small_Village'),
+    get_name(S, Shinobi),
+    get_name(VillageIRI, Village).

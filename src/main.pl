@@ -15,6 +15,7 @@ start :-
     write('--- LEVEL 1: BASIC DATA ---'), nl,
     write(' 1. shinobi_info(Name, Village, Rank).   -> Basic profile'), nl,
     write(' 2. get_clan_members(Clan, Name).        -> Clan member'), nl,
+    write(' 2. get_org_members(Org, Name).        -> Organization member'), nl,
     write(' 3. get_eye_users(EyeType, Name).        -> Dojutsu users'), nl,
     write(' 4. check_status(Status, Name).          -> Check Alive/Deceased'), nl,
     write(' 5. bijuu_info(Jinchuuriki, Bijuu, Ekor).-> Jinchuuriki & Tails info'), nl,
