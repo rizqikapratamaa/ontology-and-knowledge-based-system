@@ -79,12 +79,16 @@ akatsuki_candidate(Name) :-
     atom_concat(P, 'AkatsukiMember', ClassAkatsuki),
     atom_concat(P, 'Nukenin', ClassNukenin),
     
-    rdf(S, rdf:type, ClassNukenin),         % Syarat 1: Nukenin
-    check_status('Alive', Name),            % Syarat 2: Masih Hidup
-    \+ rdf(S, rdf:type, ClassAkatsuki),     % Syarat 3: Belum member Akatsuki
+    rdf(S, rdf:type, ClassNukenin),
     
-    % Syarat 4: Harus kuat (Jounin/Kage/Sennin)
+    get_name(S, Name),
+    
+    check_status('Alive', Name),
+    
+    \+ rdf(S, rdf:type, ClassAkatsuki),
+    
     (   shinobi_info(Name, _, 'Jounin')
     ;   shinobi_info(Name, _, 'Kage')
     ;   shinobi_info(Name, _, 'Sennin')
     ).
+

@@ -69,13 +69,15 @@ check_status(Status, Shinobi) :-
 bijuu_info(Jinchuuriki, BijuuName, TailNumber) :-
     common_prefix(naruto, P),
     atom_concat(P, 'isJinchuurikiOf', IsJin),
-    atom_concat(P, 'tailNumber', TailNum),
+    atom_concat(P, 'tailNumber', TailNumProp),
+    
     rdf(S, IsJin, B),
-    rdf(B, TailNum, literal(type(_, Tail))),
+    rdf(B, TailNumProp, literal(type(_, TailAtom))),
+    
     get_name(S, Jinchuuriki),
     get_name(B, BijuuName),
-    atom_number(TailsCountAtom, Tail),
-    TailNumber = TailsCountAtom.
+
+    atom_number(TailAtom, TailNumber).
 
 % Finding people who master certain jutsu
 who_knows_jutsu(JutsuName, Shinobi) :-
@@ -90,7 +92,9 @@ who_knows_jutsu(JutsuName, Shinobi) :-
 count_elements(Shinobi, Total) :-
     common_prefix(naruto, P),
     atom_concat(P, 'hasElement', HasElem),
-    get_name(S, Shinobi), % Bind nama dulu
+    
+    atom_concat(P, Shinobi, S), 
+    
     findall(E, rdf(S, HasElem, E), List),
     length(List, Total).
 
@@ -109,7 +113,11 @@ shinobi_from_big_village(Village, Shinobi) :-
 shinobi_from_small_village(Village, Shinobi) :-
     common_prefix(naruto, P),
     atom_concat(P, 'isFrom', IsFrom),
+    
+    atom_concat(P, 'Small_Village', ClassSmallVillage),
+
     rdf(S, IsFrom, VillageIRI),
-    rdf(VillageIRI, rdf:type, P:'Small_Village'),
+    rdf(VillageIRI, rdf:type, ClassSmallVillage),
+    
     get_name(S, Shinobi),
     get_name(VillageIRI, Village).
