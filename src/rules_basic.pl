@@ -57,6 +57,34 @@ get_eye_users(EyeType, Shinobi) :-
     downcase_atom(EyeType, InputLower),
     EyeLower = InputLower.
 
+% Get shinobi with two eye types
+dual_dojutsu_users(Eye1, Eye2, ShinobiName) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'hasEye', HasEyeProp),
+
+    % First dojutsu restriction
+    rdf(S, rdf:type, Restr1),
+    rdf(Restr1, owl:onProperty, HasEyeProp),
+    (   rdf(Restr1, owl:someValuesFrom, EyeClass1)
+    ;   rdf(Restr1, owl:allValuesFrom,  EyeClass1)
+    ),
+
+    % Second dojutsu restriction
+    rdf(S, rdf:type, Restr2),
+    rdf(Restr2, owl:onProperty, HasEyeProp),
+    (   rdf(Restr2, owl:someValuesFrom, EyeClass2)
+    ;   rdf(Restr2, owl:allValuesFrom,  EyeClass2)
+    ),
+
+    % Must be two different dojutsu
+    EyeClass1 \= EyeClass2,
+
+    % Convert to names
+    get_name(EyeClass1, Eye1),
+    get_name(EyeClass2, Eye2),
+    Eye1 @< Eye2,
+    get_name(S, ShinobiName).
+
 % Checking who is still alive or deceased
 check_status(Status, Shinobi) :-
     common_prefix(naruto, P),
