@@ -91,3 +91,41 @@ ultimate_threat(Name, ThreatScore) :-
     
     % Calculate threat score
     ThreatScore is ElementCount * 10 + 50.
+
+% Finnding element weakness of a shinobi
+element_weakness(Shinobi, WeakElement) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'hasElement', HasElem),
+    atom_concat(P, Shinobi, S),
+
+    rdf(S, HasElem, ElemURI),
+    get_name(ElemURI, ElemName),
+
+    downcase_atom(ElemName, ELower),
+
+    superior(WeakLower, ELower),
+    WeakElement = WeakLower.
+
+% Finding dual shinobi who cover each other weakness
+duo_cover_weakness(S1, S2, ElemS1, ElemS2) :-
+    S1 \= S2,
+    common_prefix(naruto, P),
+    atom_concat(P, 'hasElement', HasElem),
+
+    % Elemen milik S1
+    atom_concat(P, S1, URI1),
+    rdf(URI1, HasElem, E1URI),
+    get_name(E1URI, ElemS1Name),
+    downcase_atom(ElemS1Name, E1Lower),
+
+    % Elemen milik S2
+    atom_concat(P, S2, URI2),
+    rdf(URI2, HasElem, E2URI),
+    get_name(E2URI, ElemS2Name),
+    downcase_atom(ElemS2Name, E2Lower),
+
+    % S2 punya elemen yang superior terhadap elemen S1
+    superior(E2Lower, E1Lower),
+
+    ElemS1 = E1Lower,
+    ElemS2 = E2Lower.

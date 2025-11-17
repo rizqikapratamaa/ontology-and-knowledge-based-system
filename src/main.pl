@@ -33,6 +33,8 @@ start :-
     write(' 5. find_peers(Name, Peer).              -> Finding peers (same rank and same village)'), nl,
     write(' 6. balanced_team_check(P1,P2,P3,Result).-> Check team balanceness'), nl,
     write(' 7. ultimate_threat(Name, ThreatScore).-> Ultimate Threat - Alive, has dojutsu, kekkei genkai, and 3+ elements'), nl,
+    write(' 8. element_weakness(Shinobi, WeakElement). -> element weakness of a shinobi'), nl,
+    write(' 9. duo_cover_weakness(S1, S2, ElemS1, ElemS2). -> two shinobi who cover each other`s weaknesses'), nl,
     nl,
     write('--- LEVEL 3: ADVANCED INFERENCE ---'), nl,
     write(' 1. is_legendary(Name).                  -> Kage/Sennin with at least 2 element'), nl,
