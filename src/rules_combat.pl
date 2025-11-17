@@ -59,39 +59,6 @@ balanced_team_check(P1, P2, P3, 'BALANCED') :-
 
 balanced_team_check(_, _, _, 'IMBALANCE').
 
-% Ultimate Threat - Alive, has dojutsu, kekkei genkai, and 3+ elements
-ultimate_threat(Name, ThreatScore) :-
-    common_prefix(naruto, P),
-    atom_concat(P, 'hasElement', HasElem),
-    atom_concat(P, 'hasEye', HasEye),
-    atom_concat(P, 'masterJutsu', MasterProp),
-    atom_concat(P, 'KekkeiGenkai', KGClass),
-    atom_concat(P, 'Dojutsu', DojutsuBaseClass),
-    
-    % Must be alive
-    check_status('Alive', Name),
-    
-    % Must have dojutsu
-    atom_concat(P, Name, S),
-    rdf(S, rdf:type, EyeRestr),
-    rdf(EyeRestr, owl:onProperty, HasEye),
-    (   rdf(EyeRestr, owl:someValuesFrom, DojutsuClass)
-    ;   rdf(EyeRestr, owl:allValuesFrom, DojutsuClass)
-    ),
-    rdf(DojutsuClass, rdfs:subClassOf, DojutsuBaseClass),
-    
-    % Must have kekkei genkai
-    rdf(S, MasterProp, J),
-    rdf(J, rdf:type, KGClass),
-    
-    % Must have 3+ elements
-    findall(E, rdf(S, HasElem, E), Elements),
-    length(Elements, ElementCount),
-    ElementCount >= 3,
-    
-    % Calculate threat score
-    ThreatScore is ElementCount * 10 + 50.
-
 % Finnding element weakness of a shinobi
 element_weakness(Shinobi, WeakElement) :-
     common_prefix(naruto, P),

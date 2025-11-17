@@ -92,17 +92,6 @@ akatsuki_candidate(Name) :-
     ;   shinobi_info(Name, _, 'Sennin')
     ).
 
-% A jinchuriki who is still alive
-surviving_jinchuriki(Name, BijuuName) :-
-    common_prefix(naruto, P),
-    atom_concat(P, 'isJinchuurikiOf', IsJinOf),
-    atom_concat(P, 'status', StatusProp),
-    
-    rdf(S, IsJinOf, BijuuURI),
-    rdf(S, StatusProp, literal(type(_, 'Alive'))),
-    
-    get_name(S, Name),
-    get_name(BijuuURI, BijuuName).
 
 % Akatsuki member who is still alive
 surviving_akatsuki_member(Name) :-
@@ -121,7 +110,7 @@ seven_swordsmen_member(Name) :-
     get_org_members('Seven_Swordmans_of_The_Mist', Name).
 
 % Living Seven Swordsmen members
-sruviving_seven_swordsmen(Name) :-
+surviving_seven_swordsmen(Name) :-
     seven_swordsmen_member(Name),
     check_status('Alive', Name).
 
