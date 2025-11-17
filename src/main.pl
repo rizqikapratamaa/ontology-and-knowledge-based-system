@@ -32,7 +32,6 @@ start :-
     write(' 4. find_grand_teacher(Student, Grand).  -> Finding grandteachers'), nl,
     write(' 5. find_peers(Name, Peer).              -> Finding peers (same rank and same village)'), nl,
     write(' 6. balanced_team_check(P1,P2,P3,Result).-> Check team balanceness'), nl,
-    write(' 7. ultimate_threat(Name, ThreatScore).-> Ultimate Threat - Alive, has dojutsu, kekkei genkai, and 3+ elements'), nl,
     nl,
     write('--- LEVEL 3: ADVANCED INFERENCE ---'), nl,
     write(' 1. is_legendary(Name).                  -> Kage/Sennin with at least 2 element'), nl,
