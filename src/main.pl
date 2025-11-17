@@ -32,6 +32,7 @@ start :-
     write(' 4. find_grand_teacher(Student, Grand).  -> Finding grandteachers'), nl,
     write(' 5. find_peers(Name, Peer).              -> Finding peers (same rank and same village)'), nl,
     write(' 6. balanced_team_check(P1,P2,P3,Result).-> Check team balanceness'), nl,
+    write(' 7. ultimate_threat(Name, ThreatScore).-> Ultimate Threat - Alive, has dojutsu, kekkei genkai, and 3+ elements'), nl,
     nl,
     write('--- LEVEL 3: ADVANCED INFERENCE ---'), nl,
     write(' 1. is_legendary(Name).                  -> Kage/Sennin with at least 2 element'), nl,
@@ -43,4 +44,8 @@ start :-
     write(' 7. akatsuki_candidate(Name).            -> Akatsukis new member candidates'), nl,
     write(' 8. surviving_akatsuki_member(Name).     -> Akatsuki members still alive'), nl,
     write(' 9. surviving_jinchuriki(Name).          -> A jinchuriki who is still alive'), nl,
+    write(' 10. seven_swordsmen_member(Name).          -> Seven Swordsmen of The Mist member'), nl,
+    write(' 11. surviving_seven_swordsmen(Name).          -> Seven Swordsmen of The Mist member who is still alive'), nl,
+    write(' 12. rogue_seven_swordsmen(Name).          -> Seven Swordsmen of The Mist member who is also a nukenin'), nl,
+    write(' 13. loyal_seven_swordsmen(Name).          -> Seven Swordsmen of The Mist member who is not a nukenin'), nl,
     write('==========================================================='), nl.

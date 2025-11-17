@@ -114,3 +114,32 @@ surviving_akatsuki_member(Name) :-
     \+ rdf(S, StatusProp, literal(type(_, 'Deceased'))),
 
     get_name(S, Name).
+
+seven_swordsmen_member(Name) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'Seven_Swordmans_of_The_Mist', OrgURI),
+    get_org_members('Seven_Swordmans_of_The_Mist', Name).
+
+% 2. Living Seven Swordsmen members
+sruviving_seven_swordsmen(Name) :-
+    seven_swordsmen_member(Name),
+    check_status('Alive', Name).
+
+% 4. Seven Swordsmen who betrayed the Mist (became Nukenin)
+rogue_seven_swordsmen(Name) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'Nukenin', NukeninClass),
+    
+    seven_swordsmen_member(Name),
+    atom_concat(P, Name, URI),
+    rdf(URI, rdf:type, NukeninClass).
+
+% 5. Loyal Seven Swordsmen (not traitors, from Kirigakure)
+loyal_seven_swordsmen(Name) :-
+    common_prefix(naruto, P),
+    atom_concat(P, 'Nukenin', NukeninClass),
+    
+    seven_swordsmen_member(Name),
+    shinobi_info(Name, 'Kirigakure', _),
+    atom_concat(P, Name, URI),
+    \+ rdf(URI, rdf:type, NukeninClass).
