@@ -4,7 +4,7 @@ common_prefix(naruto, 'http://www.semanticweb.org/qika/ontologies/2025/10/naruto
 
 load_ontology :-
     write('Loading RDF Data... '),
-    rdf_load('data/naruto.rdf'),
+    rdf_load('ontology/naruto.rdf'),
     write('Done!'), nl,
     register_prefixes.
 
