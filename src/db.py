@@ -62,7 +62,7 @@ def get_clan_members(clan_name: str):
     cypher = """
     MATCH (c:ns0__Clan)
     WHERE toLower(coalesce(c.name, c.uri, "")) CONTAINS toLower($clan)
-    OPTIONAL MATCH (s:ns0__Shinobi)-[:ns0__isClanMemberOf]->(c)
+    OPTIONAL MATCH (s)-[:ns0__isClanMemberOf]-(c)
     RETURN c, collect(DISTINCT s) AS members
     """
     with driver.session() as session:
@@ -72,22 +72,36 @@ def get_clan_members(clan_name: str):
 
         c = rec["c"]
         members = rec["members"]
+
         def node_name(n):
             if not n:
                 return None
-            return n.get("name") or n.get("uri")
+            name = n.get("displayName") or n.get("name")
+            if name:
+                return name
+            uri = n.get("uri") or n.get("id")
+            if uri and "#" in uri:
+                return uri.split("#")[-1]
+            return uri
 
         return {
-            "clan": c.get("name") or c.get("uri"),
+            "clan": node_name(c),
             "members": [node_name(m) for m in members if m],
         }
 
 
+
 def get_jutsu_users(jutsu_name: str):
     cypher = """
-    MATCH (s:ns0__Shinobi)-[:ns0__masterJutsu]->(j)
-    WHERE toLower(coalesce(j.name, j.uri, "")) CONTAINS toLower($jutsu)
-    RETURN j, collect(DISTINCT s) AS users
+    MATCH (u)-[:ns0__masterJutsu]->(j)
+    WITH u, j, split(coalesce(j.name, j.uri, ""), "#") AS parts
+    WITH u, j,
+         CASE
+             WHEN size(parts) > 1 THEN parts[1]
+             ELSE parts[0]
+         END AS localName
+    WHERE toLower(localName) CONTAINS toLower($jutsu)
+    RETURN j, collect(DISTINCT u) AS users
     """
     with driver.session() as session:
         rec = session.run(cypher, jutsu=jutsu_name).single()
@@ -96,17 +110,28 @@ def get_jutsu_users(jutsu_name: str):
 
         j = rec["j"]
         users = rec["users"]
+
         def node_name(n):
             if not n:
                 return None
-            return n.get("name") or n.get("uri")
+            name = n.get("name")
+            if name:
+                return name
+            uri = n.get("uri")
+            if uri and "#" in uri:
+                return uri.split("#")[-1]
+            return uri
 
         return {
-            "jutsu": j.get("name") or j.get("uri"),
-            "users": [node_name(s) for s in users if s],
+            "jutsu": node_name(j),
+            "users": [node_name(u) for u in users if u],
         }
+
+
 
 
 if __name__ == "__main__":
     test_connection()
     print(get_shinobi_info("Chojuro"))
+    print(get_clan_members("Uchiha"))
+    print(get_jutsu_users("Rasengan"))
