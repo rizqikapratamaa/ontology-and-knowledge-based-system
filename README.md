@@ -96,11 +96,11 @@ The system follows the **Baader (2003)** architecture, separating the Terminolog
 ## 📂 File Structure
 
 ```text
-.
-├── data/
-│   └── naruto.rdf            # The Ontology file (Knowledge Base)
+.* `rules_inference.pl`: High-level reasoning (e.g., Threat assessment)
 ├── doc/
 │   └── Laporan Tugas Proyek 1 IF4070 - Kelompok J.pdf     # Project Report
+├── ontology/
+│   └── naruto.rdf            # The Ontology file (Knowledge Base)
 ├── src/
 │   ├── config.pl             # RDF Loading & Namespace configuration
 │   ├── main.pl               # Entry point & Menu interface
